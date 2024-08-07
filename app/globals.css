@@ -114,7 +114,7 @@ button:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 350px) {
+@media (max-width: 300px) {
   html, body {
     height: 100%;
     margin: 0;
