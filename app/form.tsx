@@ -58,10 +58,10 @@ const Form = () => {
             { name: formData.Name, phone: formData.Phone, email: formData.email, date: currentDate }
           ]);
         }
-        console.log('Form data submitted successfully');
         setFormData(initialFormData);
+        window.location.href = `/success?message=${encodeURIComponent(process.env.SUCCESS_MESSAGE as string)}`;
       } catch (error) {
-        console.error('Error inserting data:', error);
+        window.location.href = `/error?message=${encodeURIComponent(process.env.ERROR_MESSAGE as string)}`;
       }
     }
   };
