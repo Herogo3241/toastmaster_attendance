@@ -1,5 +1,11 @@
+import { Suspense } from "react";
 import SuccessPage from "./success";
 
 export default function Success() {
-  return <SuccessPage />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+        <SuccessPage />;
+    </Suspense>
+  )
+  
 }
