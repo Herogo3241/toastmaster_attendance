@@ -1,0 +1,128 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #004165, #0070c0);
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #004165, #0070c0); 
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+}
+
+.logo {
+  width: 50px; 
+  height: auto;
+  margin-right: 20px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: 400;
+  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  border-color: #00539f;
+  outline: none;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00539f;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="checkbox"]:checked + label::before {
+  background-color: #b22222;
+  border-color: #b22222;
+}
+
+input[type="checkbox"]:focus + label::before {
+  outline: 2px solid #00539f;
+}
+
+.error {
+  color: red;
+  font-size: 0.8em;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #b22222;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #7b1818;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+  }
+
+  button {
+    padding: 12px;
+  }
+}
