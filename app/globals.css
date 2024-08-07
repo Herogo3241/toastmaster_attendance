@@ -5,22 +5,22 @@ body {
   height: 100vh;
   background: linear-gradient(to right, #004165, #0070c0);
   background-size: cover;
-  font-family: Arial, sans-serif;
   margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, #004165, #0070c0); 
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  
+  background: linear-gradient(to right, #004165, #0070c0);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   color: white;
 }
 
 .logo {
-  width: 50px; 
+  width: 87px;
   height: auto;
   margin-right: 20px;
 }
@@ -29,7 +29,7 @@ form {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   padding: 20px;
-  width: 300px;
+  width: 350px;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,6 +41,7 @@ form div {
 
 label {
   display: block;
+  margin-left: 6px;
   margin-bottom: 5px;
   color: #000000;
   font-weight: 400;
@@ -51,7 +52,7 @@ input[type="text"] {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -99,10 +100,11 @@ button {
   width: 100%;
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #b22222;
   color: white;
   font-weight: bold;
+  font-size: medium;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -112,17 +114,45 @@ button:hover {
 }
 
 /* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 350px) {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ensure body takes up full height */
+    min-height: 100vh;
+  }
+
   form {
     width: 90%;
     padding: 15px;
+    /* Optional: To center form within body */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  form div {
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
   }
 
   input[type="text"] {
     padding: 10px;
+    /* Optional: To make the input field more responsive */
+    width: 100%;
   }
 
   button {
     padding: 12px;
+    /* Optional: To make button more responsive */
+    width: 100%;
   }
 }

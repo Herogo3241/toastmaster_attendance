@@ -69,8 +69,8 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <header className="header">
-        <img src="/toast.jpg" alt="Toastmasters Logo" className="logo" /> {/* Replace with actual logo path */}
-        <h1>Toastmasters</h1>
+        <img src="/toast.png" alt="Toastmasters Logo" className="logo" /> {/* Replace with actual logo path */}
+        <h1>Trivandrum Toastmasters</h1>
       </header>
       <div>
         <label htmlFor="name">Name</label>
