@@ -59,9 +59,9 @@ const Form = () => {
           ]);
         }
         setFormData(initialFormData);
-        window.location.href = `/success?message=${encodeURIComponent(process.env.SUCCESS_MESSAGE as string)}`;
+        window.location.href = `/success?message=${encodeURIComponent('Your submission was successful.')}`;
       } catch (error) {
-        window.location.href = `/error?message=${encodeURIComponent(process.env.ERROR_MESSAGE as string)}`;
+        window.location.href = `/error?message=${encodeURIComponent('There was an error with your submission.')}`;
       }
     }
   };
