@@ -1,4 +1,10 @@
-function Error({ statusCode }) {
+import React from 'react';
+import { NextPageContext } from 'next';
+import { useRouter } from 'next/router';
+
+function Error({ statusCode }: { statusCode: number }) {
+
+  const router = useRouter()
   return (
     <div style={{
       textAlign: 'center',
@@ -19,10 +25,10 @@ function Error({ statusCode }) {
   );
 }
 
-Error.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-  return { statusCode }
-}
+Error.getInitialProps =  async (ctx: NextPageContext) => {
+  const statusCode = ctx.res?.statusCode || ctx.err?.statusCode || 500;
+  return { statusCode };
+};
 
 export default Error
 
