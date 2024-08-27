@@ -1,7 +1,9 @@
 "use client";
 import { createClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
+import 'react-toastify/dist/ReactToastify.css';
 import './form.css';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
@@ -10,14 +12,14 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 const MemberForm = () => {
     const [names, setNames] = useState<string[]>([]);
-    const [selectedName, setSelectedName] = useState<string>("None");
+    const [selectedName, setSelectedName] = useState<string>("Name");
     const router = useRouter();
 
     async function getMembers() {
         const { data, error } = await supabase.from("memberList").select("Name");
 
         if (error) {
-            router.push('/pages/error'); 
+            router.push('/pages/error');
             return;
         }
 
@@ -31,19 +33,24 @@ const MemberForm = () => {
     }, []);
 
     const isSaturday = (date: Date) => {
-        return date.getDay() === 6; 
+        return date.getDay() === 6;
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
         if (selectedName === "Name") {
-            alert("Please select a name.");
+            toast.error("Please select a name.", {
+                position: "top-right",
+                className: "custom-toast",
+                bodyClassName: "custom-toast-body",
+            });
+
             return;
         }
 
         if (!isSaturday(new Date())) {
-            router.push(`/pages/error?message=${encodeURIComponent('Active only on Saturday')}`); 
+            router.push(`/pages/error?message=${encodeURIComponent('Active only on Saturday')}`);
             return;
         }
 
@@ -54,7 +61,7 @@ const MemberForm = () => {
             ]);
 
         if (insertError) {
-            router.push('/pages/error'); 
+            router.push('/pages/error');
             return;
         }
 
@@ -68,7 +75,7 @@ const MemberForm = () => {
 
 
         if (fetchError) {
-            router.push('/pages/error'); 
+            router.push('/pages/error');
             return;
         }
 
@@ -79,11 +86,11 @@ const MemberForm = () => {
                 .eq("Name", selectedName);
 
             if (updateError) {
-                router.push('/pages/error'); 
+                router.push('/pages/error');
                 return;
             }
 
-            router.push('/pages/success'); 
+            router.push('/pages/success');
         } else {
             router.push('/pages/error'); // Redirect to error page
         }
@@ -93,7 +100,7 @@ const MemberForm = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <header className="header">
-                    <img src="/toast.png" alt="Toastmasters Logo" className="logo" /> 
+                    <img src="/toast.png" alt="Toastmasters Logo" className="logo" />
                     <h1>Trivandrum Toastmasters</h1>
                 </header>
                 <select
@@ -113,6 +120,19 @@ const MemberForm = () => {
                 </select>
                 <button type="submit">Submit</button>
             </form>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
+
         </div>
     );
 };
