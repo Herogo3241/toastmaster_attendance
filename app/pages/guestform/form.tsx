@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { createClient } from '@supabase/supabase-js';
-import Image from "next/image";
+
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY as string;
@@ -49,16 +49,11 @@ const GuestForm = () => {
       setErrors(formErrors);
     } else {
       try {
-        const currentDate = new Date().toDateString(); // Get current date in ISO format
-        if (formData.isGuest) {
-          await supabase.from('guests').insert([
-            { name: formData.Name, phone: formData.Phone, email: formData.email, date: currentDate }
-          ]);
-        } else {
-          await supabase.from('members').insert([
-            { name: formData.Name, phone: formData.Phone, email: formData.email, date: currentDate }
-          ]);
-        }
+        const currentDate = new Date().toDateString(); // Get current date in ISO format'
+        await supabase.from('guests').insert([
+          { name: formData.Name, phone: formData.Phone, email: formData.email, date: currentDate }
+        ]);
+        
         setFormData(initialFormData);
         window.location.href = `/pages/success?message=${encodeURIComponent('Your submission was successful.')}`;
       } catch (error) {
@@ -74,48 +69,38 @@ const GuestForm = () => {
         <h1>Trivandrum Toastmasters</h1>
       </header>
       <div>
-        <label htmlFor="name">Name</label>
         <input
           type="text"
           id="name"
           name="Name"
+          placeholder="Name"
           value={formData.Name}
           onChange={handleChange}
         />
         {errors.Name && <span className="error">{errors.Name}</span>}
       </div>
       <div>
-        <label htmlFor="phone">Phone</label>
         <input
           type="text"
           id="phone"
           name="Phone"
+          placeholder="Phone"
           value={formData.Phone}
           onChange={handleChange}
         />
         {errors.Phone && <span className="error">{errors.Phone}</span>}
       </div>
       <div>
-        <label htmlFor="email">Email</label>
         <input
           type="text"
           id="email"
           name="email"
+          placeholder="Email"
           value={formData.email}
           onChange={handleChange}
         />
         {errors.email && <span className="error">{errors.email}</span>}
       </div>
-      {/* <div>
-        <input
-          type="checkbox"
-          id="isGuest"
-          name="isGuest"
-          checked={formData.isGuest}
-          onChange={handleChange}
-        />
-        <label htmlFor="isGuest">Are you a guest?</label>
-      </div> */}
       <button type="submit">Submit</button>
     </form>
   );
