@@ -37,7 +37,7 @@ const MemberForm = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault(); 
 
-        if (selectedName === "None") {
+        if (selectedName === "Name") {
             alert("Please select a name.");
             return;
         }
@@ -96,15 +96,14 @@ const MemberForm = () => {
                     <img src="/toast.png" alt="Toastmasters Logo" className="logo" /> 
                     <h1>Trivandrum Toastmasters</h1>
                 </header>
-                <label htmlFor="name">Name:</label>
                 <select
                     id="name"
                     name="name"
                     value={selectedName}
                     onChange={(e) => setSelectedName(e.target.value)}
                 >
-                    <option value="None" disabled>
-                        None
+                    <option value="Name" disabled>
+                        Name
                     </option>
                     {names.map((name, index) => (
                         <option key={index} value={name}>
