@@ -7,12 +7,10 @@ import "./Index.css";
 const Index = () => {
     const router = useRouter();
     const handleMembers = () => {
-        console.log("Member");
         router.push("/pages/memberform");
     }
 
     const handleGuests = () => {
-        console.log("Guest");
         router.push("/pages/guestform");
 
     }
