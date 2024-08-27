@@ -1,0 +1,52 @@
+.container {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container div{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #004165, #0070c0);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+
+/* Responsive styles */
+@media (max-width: 300px) {
+  
+    .container {
+      width: 90%;
+      padding: 15px;
+      /* Optional: To center form within body */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container div {
+      width: 100%;
+      margin-bottom: 15px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+  
+  
+    button {
+      padding: 12px;
+      /* Optional: To make button more responsive */
+      width: 100%;
+    }
+  }
+  

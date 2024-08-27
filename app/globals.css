@@ -113,6 +113,22 @@ button:hover {
   background-color: #7b1818;
 }
 
+#loader {
+  border: 8px solid #f3f3f3; /* Light grey background for the border */
+  border-top: 8px solid #d71920; /* Toastmasters red */
+  border-radius: 50%; /* Circular shape */
+  width: 50px; /* Diameter of the spinner */
+  height: 50px; /* Diameter of the spinner */
+  animation: spin 1s linear infinite; /* Animation */
+  margin: 50px auto; /* Center the spinner */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 /* Responsive styles */
 @media (max-width: 300px) {
   html, body {

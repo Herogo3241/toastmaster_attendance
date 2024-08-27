@@ -3,7 +3,7 @@ import ErrorPage from "./error";
 
 export default function Error() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div id="loader"></div>}>
         <ErrorPage />;
     </Suspense>
   ); 

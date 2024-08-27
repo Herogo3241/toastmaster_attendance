@@ -1,10 +1,9 @@
-import Image from "next/image";
-import Form from "./form";
+import Index from "./pages/index/Index";
 
 export default function Home() {
   return (
     <main>
-      <Form />
+      <Index />
     </main>
   );
 }

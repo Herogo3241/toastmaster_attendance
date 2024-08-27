@@ -1,17 +1,18 @@
 "use client";
 import { useState } from "react";
 import { createClient } from '@supabase/supabase-js';
+import Image from "next/image";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const Form = () => {
+const guestForm = () => {
   const initialFormData = {
     Name: "",
     Phone: "",
     email: "",
-    isGuest: false,
+    isGuest: true,
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -59,9 +60,9 @@ const Form = () => {
           ]);
         }
         setFormData(initialFormData);
-        window.location.href = `/success?message=${encodeURIComponent('Your submission was successful.')}`;
+        window.location.href = `/pages/success?message=${encodeURIComponent('Your submission was successful.')}`;
       } catch (error) {
-        window.location.href = `/error?message=${encodeURIComponent('There was an error with your submission.')}`;
+        window.location.href = `/pages/error?message=${encodeURIComponent('There was an error with your submission.')}`;
       }
     }
   };
@@ -105,7 +106,7 @@ const Form = () => {
         />
         {errors.email && <span className="error">{errors.email}</span>}
       </div>
-      <div>
+      {/* <div>
         <input
           type="checkbox"
           id="isGuest"
@@ -114,10 +115,10 @@ const Form = () => {
           onChange={handleChange}
         />
         <label htmlFor="isGuest">Are you a guest?</label>
-      </div>
+      </div> */}
       <button type="submit">Submit</button>
     </form>
   );
 };
 
-export default Form;
+export default guestForm;

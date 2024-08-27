@@ -3,7 +3,7 @@ import SuccessPage from "./success";
 
 export default function Success() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div id="loader"></div>}>
         <SuccessPage />;
     </Suspense>
   )
