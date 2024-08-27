@@ -1,3 +1,11 @@
+:root {
+  --toastmasters-red: #d71f26;
+  --toastmasters-light-gray: #f4f4f4;
+  --toastmasters-dark-gray: #333;
+  --toastmasters-border-radius: 5px;
+}
+
+
 body {
   display: flex;
   justify-content: center;
@@ -39,20 +47,16 @@ form div {
   font-size: 1rem;
 }
 
-label {
-  display: block;
-  margin-left: 6px;
-  margin-bottom: 5px;
-  color: #000000;
-  font-weight: 400;
-  /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); */
-}
+
 
 input[type="text"] {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 2px solid var(--toastmasters-red);
   border-radius: 10px;
+  background-color: var(--toastmasters-light-gray);
+  color: var(--toastmasters-dark-gray);
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -61,35 +65,7 @@ input[type="text"]:focus {
   outline: none;
 }
 
-input[type="checkbox"] {
-  display: none;
-}
 
-input[type="checkbox"] + label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-input[type="checkbox"] + label::before {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #00539f;
-  border-radius: 5px;
-  margin-right: 10px;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-input[type="checkbox"]:checked + label::before {
-  background-color: #b22222;
-  border-color: #b22222;
-}
-
-input[type="checkbox"]:focus + label::before {
-  outline: 2px solid #00539f;
-}
 
 .error {
   color: red;
