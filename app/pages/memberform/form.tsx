@@ -50,7 +50,11 @@ const MemberForm = () => {
         }
 
         if (!isSaturday(new Date())) {
-            router.push(`/pages/error?message=${encodeURIComponent('Active only on Saturday')}`);
+            toast.error("Active only on Saturday", {
+                position: "top-right",
+                className: "custom-toast",
+                bodyClassName: "custom-toast-body",
+            });
             return;
         }
 
