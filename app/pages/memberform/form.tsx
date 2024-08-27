@@ -65,7 +65,7 @@ const MemberForm = () => {
             .eq("Name", selectedName)
             .single();
 
-        console.log(memberData);
+
 
         if (fetchError) {
             router.push('/pages/error'); 
@@ -87,7 +87,6 @@ const MemberForm = () => {
         } else {
             router.push('/pages/error'); // Redirect to error page
         }
-        console.log(memberData);
     };
 
     return (
